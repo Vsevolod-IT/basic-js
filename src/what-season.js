@@ -6,6 +6,11 @@ module.exports = function getSeason(date) {
 	} else if (!arguments[0]){
 		return 'Unable to determine the time of year!';
 	} else {
+		
+		if (Object.prototype.toString.call(date) !== '[object Date]') {
+			throw new Error
+		  };
+
 		let d = arguments[0];
 		d = d.getMonth();
 		let ses = ['winter', 'winter', 'spring', 'spring', 'spring',
